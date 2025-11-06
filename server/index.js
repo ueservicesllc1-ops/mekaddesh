@@ -11,7 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'https://mekaddesh.shop',
+  credentials: true,
+}));
 app.use(express.json());
 
 // Configure multer for file uploads
@@ -157,8 +160,9 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`CORS proxy ready for Backblaze B2 uploads`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 

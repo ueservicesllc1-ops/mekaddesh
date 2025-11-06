@@ -1,0 +1,17 @@
+{
+  "VITE_API_URL": "https://mekaddesh.shop",
+  "PORT": "3001",
+  "B2_APPLICATION_KEY_ID": "005c2b526be0baa0000000021",
+  "B2_APPLICATION_KEY": "K005rNLngTzaNkWUagZYdsaVzbLlwIA",
+  "B2_BUCKET_NAME": "mekadesh",
+  "B2_BUCKET_ID": "6c92eb35d2265b6e90ab0a1a",
+  "B2_REGION": "us-east-005",
+  "FRONTEND_URL": "https://mekaddesh.shop",
+  "NODE_ENV": "production",
+  "VITE_FIREBASE_API_KEY": "AIzaSyDbnYTdFHG5L_YQJ-39bzvKVSkmk37gppg",
+  "VITE_FIREBASE_AUTH_DOMAIN": "mekade-a311d.firebaseapp.com",
+  "VITE_FIREBASE_PROJECT_ID": "mekade-a311d",
+  "VITE_FIREBASE_STORAGE_BUCKET": "mekade-a311d.firebasestorage.app",
+  "VITE_FIREBASE_MESSAGING_SENDER_ID": "990121061879",
+  "VITE_FIREBASE_APP_ID": "1:990121061879:web:d12c9d433e767d169f12f2"
+}

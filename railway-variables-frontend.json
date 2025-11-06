@@ -1,0 +1,5 @@
+{
+  "VITE_API_URL": "https://mekaddesh.shop",
+  "NODE_ENV": "production"
+}
+

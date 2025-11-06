@@ -1,13 +1,101 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiShield, FiSettings, FiUsers, FiPackage, FiBarChart2, FiPlus, FiEdit2, FiTrash2 } from 'react-icons/fi';
+import { FiShield, FiSettings, FiUsers, FiPackage, FiBarChart2, FiPlus, FiEdit2, FiTrash2, FiLock } from 'react-icons/fi';
 import ProductModal from '../components/ProductModal';
 import { useProducts } from '../context/ProductsContext';
 
+const ADMIN_PIN = '1619';
+const SESSION_KEY = 'admin_authenticated';
+
 const Admin = () => {
   const { products, deleteProduct } = useProducts();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [pin, setPin] = useState('');
+  const [error, setError] = useState('');
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  // Verificar si ya está autenticado al cargar
+  useEffect(() => {
+    const authenticated = sessionStorage.getItem(SESSION_KEY) === 'true';
+    setIsAuthenticated(authenticated);
+  }, []);
+
+  const handlePinSubmit = (e) => {
+    e.preventDefault();
+    if (pin === ADMIN_PIN) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem(SESSION_KEY, 'true');
+      setError('');
+      setPin('');
+    } else {
+      setError('PIN incorrecto. Inténtalo de nuevo.');
+      setPin('');
+    }
+  };
+
+  // Si no está autenticado, mostrar el formulario de PIN
+  if (!isAuthenticated) {
+    return (
+      <div className="pt-24 min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-md w-full mx-4"
+        >
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-rose-100">
+            <div className="text-center mb-8">
+              <div className="inline-block p-4 bg-gradient-to-r from-rose-500 to-rose-600 rounded-full mb-6 shadow-rose">
+                <FiLock className="text-4xl text-white" />
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">
+                <span className="text-gradient-gold">Acceso</span>{' '}
+                <span className="text-gray-800">Restringido</span>
+              </h1>
+              <p className="text-gray-600">
+                Ingresa el PIN para acceder al panel de administración
+              </p>
+            </div>
+
+            <form onSubmit={handlePinSubmit} className="space-y-4">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  PIN de Acceso
+                </label>
+                <input
+                  type="password"
+                  value={pin}
+                  onChange={(e) => {
+                    setPin(e.target.value);
+                    setError('');
+                  }}
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    error ? 'border-red-500' : 'border-rose-200'
+                  } focus:outline-none focus:ring-2 focus:ring-rose-500 text-center text-2xl tracking-widest`}
+                  placeholder="••••"
+                  maxLength="4"
+                  autoFocus
+                />
+                {error && (
+                  <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
+                )}
+              </div>
+
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-lg font-semibold text-lg shadow-rose hover:shadow-xl transition-all"
+              >
+                Ingresar
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   const handleOpenProductModal = () => {
     setSelectedProduct(null);

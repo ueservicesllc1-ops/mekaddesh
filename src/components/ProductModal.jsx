@@ -237,26 +237,26 @@ const ProductModal = ({ isOpen, onClose, productToEdit = null }) => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center justify-between mt-6 pt-6 border-t border-rose-200">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-6 pt-6 border-t border-rose-200">
                   {productToEdit && (
                     <motion.button
                       type="button"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={handleDelete}
-                      className="px-6 py-3 bg-red-500 text-white rounded-lg font-semibold flex items-center gap-2 hover:bg-red-600 transition-colors"
+                      className="px-4 py-2 sm:px-6 sm:py-3 bg-red-500 text-white rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
                     >
-                      <FiTrash2 />
-                      Eliminar
+                      <FiTrash2 className="text-sm sm:text-base" />
+                      <span className="hidden sm:inline">Eliminar</span>
                     </motion.button>
                   )}
-                  <div className="flex gap-3 ml-auto">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:ml-auto w-full sm:w-auto">
                     <motion.button
                       type="button"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={onClose}
-                      className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+                      className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold text-sm sm:text-base hover:bg-gray-300 transition-colors"
                     >
                       Cancelar
                     </motion.button>
@@ -265,17 +265,23 @@ const ProductModal = ({ isOpen, onClose, productToEdit = null }) => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       disabled={uploading}
-                      className="px-6 py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-lg font-semibold flex items-center gap-2 shadow-rose hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center gap-2 shadow-rose hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {uploading ? (
                         <>
-                          <FiLoader className="animate-spin" />
-                          Guardando...
+                          <FiLoader className="animate-spin text-sm sm:text-base" />
+                          <span className="hidden sm:inline">Guardando...</span>
+                          <span className="sm:hidden">Guardando</span>
                         </>
                       ) : (
                         <>
-                          <FiSave />
-                          {productToEdit ? 'Guardar Cambios' : 'Crear Producto'}
+                          <FiSave className="text-sm sm:text-base" />
+                          <span className="hidden sm:inline">
+                            {productToEdit ? 'Guardar Cambios' : 'Crear Producto'}
+                          </span>
+                          <span className="sm:hidden">
+                            {productToEdit ? 'Guardar' : 'Crear'}
+                          </span>
                         </>
                       )}
                     </motion.button>

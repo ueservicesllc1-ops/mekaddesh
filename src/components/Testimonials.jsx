@@ -5,48 +5,48 @@ import { FiStar } from 'react-icons/fi';
 const testimonials = [
   {
     id: 1,
-    name: 'María González',
-    location: 'Madrid, España',
+    name: 'Sarah Johnson',
+    location: 'New York, NY',
     rating: 5,
     comment: 'Los productos de Mekaddesh han transformado mi rutina de belleza. Mi piel nunca se había sentido tan suave y radiante. ¡Altamente recomendados!',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
   },
   {
     id: 2,
-    name: 'Ana Martínez',
-    location: 'Barcelona, España',
+    name: 'Emily Rodriguez',
+    location: 'New Jersey',
     rating: 5,
     comment: 'Increíble calidad. El serum revitalizante es mi producto favorito. Noté resultados desde la primera semana. ¡Vale cada centavo!',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
   },
   {
     id: 3,
-    name: 'Laura Sánchez',
-    location: 'Valencia, España',
+    name: 'Jessica Martinez',
+    location: 'New York, NY',
     rating: 5,
     comment: 'Mekaddesh superó todas mis expectativas. Los productos son naturales, efectivos y el servicio al cliente es excepcional. ¡Gracias!',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150',
   },
   {
     id: 4,
-    name: 'Carmen López',
-    location: 'Sevilla, España',
+    name: 'Amanda Thompson',
+    location: 'New Jersey',
     rating: 5,
     comment: 'Desde que uso la crema hidratante dorada, mi piel se ve más joven y luminosa. Mis amigas ya me preguntan qué estoy usando.',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
   },
   {
     id: 5,
-    name: 'Sofía Ramírez',
-    location: 'Bilbao, España',
+    name: 'Olivia Brown',
+    location: 'New York, NY',
     rating: 5,
     comment: 'El kit completo es perfecto para comenzar. Todos los productos trabajan en armonía y los resultados son visibles rápidamente.',
     image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150',
   },
   {
     id: 6,
-    name: 'Isabel Torres',
-    location: 'Málaga, España',
+    name: 'Sophia Williams',
+    location: 'New Jersey',
     rating: 5,
     comment: 'Productos de lujo a un precio justo. La calidad es excepcional y el empaque es hermoso. Definitivamente volveré a comprar.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
@@ -114,7 +114,7 @@ const TestimonialCard = ({ testimonial, index }) => {
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-rose-50 to-white">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-rose-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -123,11 +123,11 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
             <span className="text-gray-800">Lo Que Dicen</span>{' '}
             <span className="text-gradient-gold">Nuestros Clientes</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
             Miles de clientes satisfechos confían en Mekaddesh para su rutina de belleza
           </p>
         </motion.div>

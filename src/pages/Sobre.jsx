@@ -36,7 +36,7 @@ const Sobre = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-rose-50 to-white">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-rose-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -63,9 +63,9 @@ const Sobre = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-rose">
+      <section className="py-8 md:py-16 bg-gradient-rose -mt-8 md:mt-0">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -86,9 +86,9 @@ const Sobre = () => {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white">
+      <section className="py-8 md:py-20 bg-white -mt-8 md:mt-0">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -117,7 +117,7 @@ const Sobre = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 md:py-20 bg-white -mt-8 md:mt-0">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -125,17 +125,18 @@ const Sobre = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="text-center md:text-left"
             >
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 -mt-4 md:mt-0">
                 Nuestra <span className="text-gradient-gold">Misión</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-4">
+              <p className="text-base md:text-lg text-gray-600 mb-4">
                 En Mekaddesh, creemos que cada persona merece sentirse hermosa y
                 confiada. Por eso, nos dedicamos a crear productos que no solo
                 realzan tu belleza exterior, sino que también nutren tu bienestar
                 interior.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-base md:text-lg text-gray-600">
                 Trabajamos con ingredientes naturales y sostenibles, asegurándonos
                 de que cada producto sea seguro, efectivo y respetuoso con el medio
                 ambiente.
@@ -146,9 +147,9 @@ const Sobre = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-gradient-rose p-8 rounded-2xl shadow-lg"
+              className="bg-gradient-rose p-6 md:p-8 rounded-2xl shadow-lg text-center md:text-left"
             >
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
                 <div className="p-4 bg-white rounded-full">
                   <FiUsers className="text-3xl text-rose-600" />
                 </div>

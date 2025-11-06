@@ -254,28 +254,28 @@ const Checkout = () => {
                 className="space-y-6"
               >
                 {/* Resumen del Pedido */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100 sticky top-24">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg border border-rose-100 md:sticky md:top-24">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
                     Resumen del Pedido
                   </h2>
 
                   {/* Productos */}
-                  <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                  <div className="space-y-3 md:space-y-4 mb-4 md:mb-6 max-h-64 md:max-h-96 overflow-y-auto">
                     {cart.map((item) => (
                       <div
                         key={item.id}
-                        className="flex gap-4 pb-4 border-b border-rose-100 last:border-0"
+                        className="flex gap-3 md:gap-4 pb-3 md:pb-4 border-b border-rose-100 last:border-0"
                       >
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="w-16 h-16 object-cover rounded-lg"
+                          className="w-12 h-12 md:w-16 md:h-16 object-cover rounded-lg flex-shrink-0"
                           onError={(e) => {
                             e.target.style.display = 'none';
                           }}
                         />
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-800 text-sm mb-1">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-800 text-xs md:text-sm mb-1 line-clamp-2">
                             {item.name}
                           </h3>
                           <p className="text-xs text-gray-500 mb-1">
@@ -290,19 +290,19 @@ const Checkout = () => {
                   </div>
 
                   {/* Totales */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex justify-between text-gray-600">
+                  <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                    <div className="flex justify-between text-sm md:text-base text-gray-600">
                       <span>Subtotal:</span>
                       <span className="font-semibold">${getTotalPrice().toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-gray-600">
+                    <div className="flex justify-between text-sm md:text-base text-gray-600">
                       <span>Envío:</span>
                       <span className="font-semibold">Por confirmar</span>
                     </div>
-                    <div className="border-t border-rose-200 pt-3">
+                    <div className="border-t border-rose-200 pt-2 md:pt-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-xl font-bold text-gray-800">Total:</span>
-                        <span className="text-3xl font-bold text-gradient-gold">
+                        <span className="text-lg md:text-xl font-bold text-gray-800">Total:</span>
+                        <span className="text-2xl md:text-3xl font-bold text-gradient-gold">
                           ${getTotalPrice().toFixed(2)}
                         </span>
                       </div>
@@ -315,24 +315,24 @@ const Checkout = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100"
+                  className="bg-white rounded-2xl p-4 md:p-6 shadow-lg border border-rose-100 relative z-10"
                 >
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                    <FiCreditCard className="text-rose-600" />
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                    <FiCreditCard className="text-rose-600 text-lg md:text-xl" />
                     Métodos de Pago
                   </h2>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3 md:space-y-4">
                     {/* PayPal Button */}
                     <motion.button
                       type="submit"
                       disabled={isProcessing}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full px-8 py-4 bg-[#0070ba] hover:bg-[#005ea6] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-4 md:px-8 py-3 md:py-4 bg-[#0070ba] hover:bg-[#005ea6] text-white rounded-xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 md:gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5 md:w-6 md:h-6"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >
@@ -346,10 +346,10 @@ const Checkout = () => {
                       type="button"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full px-8 py-4 bg-[#1ba0f2] hover:bg-[#0a8cd8] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+                      className="w-full px-4 md:px-8 py-3 md:py-4 bg-[#1ba0f2] hover:bg-[#0a8cd8] text-white rounded-xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 md:gap-3"
                     >
                       <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5 md:w-6 md:h-6"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >

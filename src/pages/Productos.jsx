@@ -5,19 +5,19 @@ import Products from '../components/Products';
 const Productos = () => {
   return (
     <div className="pt-20">
-      <section className="py-20 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-8 md:py-20 bg-gradient-to-b from-white to-rose-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
               <span className="text-gradient-gold">Nuestros</span>{' '}
               <span className="text-gray-800">Productos</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
               Descubre nuestra exclusiva colección de productos de belleza
               cuidadosamente formulados para realzar tu belleza natural
             </p>

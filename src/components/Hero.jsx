@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-[70vh] flex items-center justify-center gradient-rose pt-28 md:pt-32"
+      className="relative min-h-[35vh] md:min-h-[70vh] flex items-center justify-center gradient-rose pt-20 md:pt-32 pb-6 md:pb-0"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -22,7 +22,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -top-40 -right-40 w-96 h-96 bg-mekadesh-gold-400 rounded-full blur-3xl md:blur-3xl blur-2xl opacity-60 md:opacity-100"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-mekadesh-gold-400 rounded-full blur-3xl opacity-60 md:opacity-100"
         />
         <motion.div
           animate={{
@@ -35,7 +35,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-rose-400 rounded-full blur-3xl md:blur-3xl blur-2xl opacity-60 md:opacity-100"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-rose-400 rounded-full blur-3xl opacity-60 md:opacity-100"
         />
       </div>
 
@@ -99,12 +99,12 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="mb-6 md:mb-8"
+            className="mb-8 md:mb-8 mt-2"
           >
             <img
               src="/images/LOGO 2 PNG.png"
               alt="Mekaddesh Logo"
-              className="h-24 md:h-48 mx-auto object-contain drop-shadow-2xl w-auto"
+              className="h-32 md:h-48 mx-auto object-contain drop-shadow-2xl w-auto"
               style={{ maxWidth: '90vw' }}
             />
           </motion.div>
@@ -113,7 +113,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-2xl md:text-5xl font-bold mb-3 md:mb-4 px-2"
+            className="text-2xl md:text-5xl font-bold mb-4 px-2 md:px-0 -mt-4 md:mt-0"
           >
             <span className="text-gray-800">
               Tu Belleza,
@@ -122,30 +122,20 @@ const Hero = () => {
             <span className="text-gradient-rose">Nuestra Pasión</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-sm md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed px-4"
-          >
-            Descubre nuestra exclusiva colección de productos de belleza
-            diseñados para realzar tu belleza natural
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center -mt-4"
+            className="flex flex-row gap-3 md:gap-4 justify-center items-center mt-2 md:-mt-4"
           >
             <Link to="/productos">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-6 py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-full font-semibold text-base shadow-rose hover:shadow-xl transition-all flex items-center gap-2 cursor-pointer"
+                className="group px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-full font-semibold text-sm md:text-base shadow-rose hover:shadow-xl transition-all flex items-center gap-2 cursor-pointer"
               >
                 Explorar Productos
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <FiArrowRight className="group-hover:translate-x-1 transition-transform text-sm md:text-base" />
               </motion.div>
             </Link>
 
@@ -153,7 +143,7 @@ const Hero = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white/80 backdrop-blur-sm text-rose-600 rounded-full font-semibold text-base shadow-lg hover:shadow-xl transition-all border-2 border-rose-200 cursor-pointer"
+                className="px-4 py-2 md:px-6 md:py-3 bg-white/80 backdrop-blur-sm text-rose-600 rounded-full font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all border-2 border-rose-200 cursor-pointer"
               >
                 Conoce Más
               </motion.div>

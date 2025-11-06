@@ -251,114 +251,117 @@ const Checkout = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100 sticky top-24"
+                className="space-y-6"
               >
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                  Resumen del Pedido
-                </h2>
+                {/* Resumen del Pedido */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100 sticky top-24">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                    Resumen del Pedido
+                  </h2>
 
-                {/* Productos */}
-                <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
-                  {cart.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex gap-4 pb-4 border-b border-rose-100 last:border-0"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-16 h-16 object-cover rounded-lg"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-800 text-sm mb-1">
-                          {item.name}
-                        </h3>
-                        <p className="text-xs text-gray-500 mb-1">
-                          Cantidad: {item.quantity}
-                        </p>
-                        <p className="text-sm font-bold text-gradient-gold">
-                          ${(item.price * item.quantity).toFixed(2)}
-                        </p>
+                  {/* Productos */}
+                  <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                    {cart.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex gap-4 pb-4 border-b border-rose-100 last:border-0"
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-16 h-16 object-cover rounded-lg"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-gray-800 text-sm mb-1">
+                            {item.name}
+                          </h3>
+                          <p className="text-xs text-gray-500 mb-1">
+                            Cantidad: {item.quantity}
+                          </p>
+                          <p className="text-sm font-bold text-gradient-gold">
+                            ${(item.price * item.quantity).toFixed(2)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Totales */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex justify-between text-gray-600">
+                      <span>Subtotal:</span>
+                      <span className="font-semibold">${getTotalPrice().toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-gray-600">
+                      <span>Envío:</span>
+                      <span className="font-semibold">Por confirmar</span>
+                    </div>
+                    <div className="border-t border-rose-200 pt-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xl font-bold text-gray-800">Total:</span>
+                        <span className="text-3xl font-bold text-gradient-gold">
+                          ${getTotalPrice().toFixed(2)}
+                        </span>
                       </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
 
-                {/* Totales */}
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-gray-600">
-                    <span>Subtotal:</span>
-                    <span className="font-semibold">${getTotalPrice().toFixed(2)}</span>
+                {/* Métodos de Pago */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100"
+                >
+                  <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                    <FiCreditCard className="text-rose-600" />
+                    Métodos de Pago
+                  </h2>
+
+                  <div className="space-y-4">
+                    {/* PayPal Button */}
+                    <motion.button
+                      type="submit"
+                      disabled={isProcessing}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full px-8 py-4 bg-[#0070ba] hover:bg-[#005ea6] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.174 1.351 1.05 3.3.93 4.855v.005l-.147 2.714c-.01.18-.01.37 0 .55-.024 1.612.11 3.263-1.001 4.44-1.07 1.12-2.857 1.53-5.19 1.53H9.576a.641.641 0 0 0-.633.74l1.464 8.707a.641.641 0 0 1-.633.74zm-4.5-1.28h4.5l1.464-8.707H8.79c1.56 0 2.9-.2 3.85-.5 1.01-.33 1.71-.9 2.05-1.68.33-.76.25-1.7-.24-2.78-.48-1.06-1.3-2.17-2.45-3.3-.58-.57-1.3-1.08-2.16-1.52H6.5l-1.92 14.487z" />
+                      </svg>
+                      {isProcessing ? 'Procesando...' : 'Pagar con PayPal'}
+                    </motion.button>
+
+                    {/* PayPal Credit Button */}
+                    <motion.button
+                      type="button"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full px-8 py-4 bg-[#1ba0f2] hover:bg-[#0a8cd8] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+                    >
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.174 1.351 1.05 3.3.93 4.855v.005l-.147 2.714c-.01.18-.01.37 0 .55-.024 1.612.11 3.263-1.001 4.44-1.07 1.12-2.857 1.53-5.19 1.53H9.576a.641.641 0 0 0-.633.74l1.464 8.707a.641.641 0 0 1-.633.74zm-4.5-1.28h4.5l1.464-8.707H8.79c1.56 0 2.9-.2 3.85-.5 1.01-.33 1.71-.9 2.05-1.68.33-.76.25-1.7-.24-2.78-.48-1.06-1.3-2.17-2.45-3.3-.58-.57-1.3-1.08-2.16-1.52H6.5l-1.92 14.487z" />
+                      </svg>
+                      PayPal Credit
+                    </motion.button>
                   </div>
-                  <div className="flex justify-between text-gray-600">
-                    <span>Envío:</span>
-                    <span className="font-semibold text-green-600">Gratis</span>
-                  </div>
-                  <div className="border-t border-rose-200 pt-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xl font-bold text-gray-800">Total:</span>
-                      <span className="text-3xl font-bold text-gradient-gold">
-                        ${getTotalPrice().toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
-
-          {/* Métodos de Pago */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-8 bg-white rounded-2xl p-8 shadow-lg border border-rose-100"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-              <FiCreditCard className="text-rose-600" />
-              Métodos de Pago
-            </h2>
-
-            <div className="flex flex-wrap gap-4 justify-center">
-              {/* PayPal Button */}
-              <motion.button
-                type="submit"
-                disabled={isProcessing}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-[#0070ba] hover:bg-[#005ea6] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.174 1.351 1.05 3.3.93 4.855v.005l-.147 2.714c-.01.18-.01.37 0 .55-.024 1.612.11 3.263-1.001 4.44-1.07 1.12-2.857 1.53-5.19 1.53H9.576a.641.641 0 0 0-.633.74l1.464 8.707a.641.641 0 0 1-.633.74zm-4.5-1.28h4.5l1.464-8.707H8.79c1.56 0 2.9-.2 3.85-.5 1.01-.33 1.71-.9 2.05-1.68.33-.76.25-1.7-.24-2.78-.48-1.06-1.3-2.17-2.45-3.3-.58-.57-1.3-1.08-2.16-1.52H6.5l-1.92 14.487z" />
-                </svg>
-                {isProcessing ? 'Procesando...' : 'Pagar con PayPal'}
-              </motion.button>
-
-              {/* PayPal Credit Button */}
-              <motion.button
-                type="button"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-[#1ba0f2] hover:bg-[#0a8cd8] text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-3"
-              >
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.174 1.351 1.05 3.3.93 4.855v.005l-.147 2.714c-.01.18-.01.37 0 .55-.024 1.612.11 3.263-1.001 4.44-1.07 1.12-2.857 1.53-5.19 1.53H9.576a.641.641 0 0 0-.633.74l1.464 8.707a.641.641 0 0 1-.633.74zm-4.5-1.28h4.5l1.464-8.707H8.79c1.56 0 2.9-.2 3.85-.5 1.01-.33 1.71-.9 2.05-1.68.33-.76.25-1.7-.24-2.78-.48-1.06-1.3-2.17-2.45-3.3-.58-.57-1.3-1.08-2.16-1.52H6.5l-1.92 14.487z" />
-                </svg>
-                PayPal Credit
-              </motion.button>
-            </div>
-          </motion.div>
         </form>
       </div>
     </div>

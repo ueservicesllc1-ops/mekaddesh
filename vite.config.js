@@ -13,6 +13,11 @@ export default defineConfig({
       '.up.railway.app'
     ]
   },
+  build: {
+    // Optimizado para iPhone 16 (393x852px)
+    target: 'es2015',
+    cssCodeSplit: true,
+  },
   server: {
     host: '0.0.0.0',
     port: 5173

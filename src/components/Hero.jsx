@@ -22,7 +22,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -top-40 -right-40 w-96 h-96 bg-mekadesh-gold-400 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-mekadesh-gold-400 rounded-full blur-3xl md:blur-3xl blur-2xl opacity-60 md:opacity-100"
         />
         <motion.div
           animate={{
@@ -35,12 +35,12 @@ const Hero = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-rose-400 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-rose-400 rounded-full blur-3xl md:blur-3xl blur-2xl opacity-60 md:opacity-100"
         />
       </div>
 
       {/* Floating Sparkles - Distributed across entire banner */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-0">
         {[...Array(40)].map((_, i) => {
           // Usar porcentajes para distribuir en todo el ancho
           const randomXPercent = Math.random() * 100;
@@ -56,7 +56,7 @@ const Hero = () => {
               }}
               animate={{
                 y: [0, -Math.random() * 50 - 20],
-                opacity: [0, 0.8, 0],
+                opacity: [0, 1, 0],
                 scale: [0, 1, 0],
                 rotate: [0, Math.random() > 0.5 ? 180 : -180, Math.random() > 0.5 ? 360 : -360],
               }}
@@ -65,19 +65,20 @@ const Hero = () => {
                 repeat: Infinity,
                 delay: Math.random() * 2,
               }}
-              className="absolute"
+              className="absolute z-0"
               style={{ transform: 'translate(-50%, -50%)' }}
             >
-              <div className="text-mekadesh-gold-400 text-xl md:text-2xl">
+              <div className="text-mekadesh-gold-400 text-base md:text-xl">
                 <svg
-                  width="24"
-                  height="24"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="md:w-6 md:h-6"
                 >
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                 </svg>
@@ -98,12 +99,13 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="mb-8"
+            className="mb-6 md:mb-8"
           >
             <img
               src="/images/LOGO 2 PNG.png"
               alt="Mekaddesh Logo"
-              className="h-32 md:h-48 mx-auto object-contain drop-shadow-2xl"
+              className="h-24 md:h-48 mx-auto object-contain drop-shadow-2xl w-auto"
+              style={{ maxWidth: '90vw' }}
             />
           </motion.div>
 
@@ -111,7 +113,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-2xl md:text-5xl font-bold mb-3 md:mb-4 px-2"
           >
             <span className="text-gray-800">
               Tu Belleza,
@@ -124,7 +126,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed px-4"
           >
             Descubre nuestra exclusiva colección de productos de belleza
             diseñados para realzar tu belleza natural

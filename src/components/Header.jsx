@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiShoppingBag, FiMenu, FiX, FiShield } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
-import Cart from './Cart';
 
 const Header = () => {
-  const { getTotalItems, setIsOpen } = useCart();
+  const { getTotalItems } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const location = useLocation();
   const totalItems = getTotalItems();
@@ -96,23 +95,24 @@ const Header = () => {
               </Link>
 
               {/* Cart Button */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setIsOpen(true)}
-                className="relative p-3 rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white shadow-rose hover:shadow-lg transition-shadow"
-              >
-                <FiShoppingBag className="text-xl" />
-                {totalItems > 0 && (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-1 -right-1 bg-mekadesh-gold-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
-                  >
-                    {totalItems}
-                  </motion.span>
-                )}
-              </motion.button>
+              <Link to="/carrito">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative p-3 rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white shadow-rose hover:shadow-lg transition-shadow"
+                >
+                  <FiShoppingBag className="text-xl" />
+                  {totalItems > 0 && (
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute -top-1 -right-1 bg-mekadesh-gold-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center"
+                    >
+                      {totalItems}
+                    </motion.span>
+                  )}
+                </motion.div>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -180,11 +180,26 @@ const Header = () => {
               >
                 Contacto
               </Link>
+              <Link
+                to="/carrito"
+                className={`block transition-colors relative ${
+                  isActive('/carrito')
+                    ? 'text-rose-600 font-semibold'
+                    : 'text-gray-700 hover:text-rose-600'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Carrito
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-mekadesh-gold-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
             </motion.nav>
           )}
         </div>
       </motion.header>
-      <Cart />
     </>
   );
 };

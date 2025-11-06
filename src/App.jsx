@@ -9,6 +9,8 @@ import Productos from './pages/Productos';
 import Sobre from './pages/Sobre';
 import Contacto from './pages/Contacto';
 import Admin from './pages/Admin';
+import Carrito from './pages/Carrito';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contacto" element={<Contacto />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/carrito" element={<Carrito />} />
+                <Route path="/checkout" element={<Checkout />} />
               </Routes>
             </main>
             <Footer />

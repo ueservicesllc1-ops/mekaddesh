@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
       }
       return [...prevCart, { ...product, quantity: 1 }];
     });
-    setIsOpen(true);
+    // Ya no abrimos el sidebar, el usuario puede ir a /carrito
   };
 
   const removeFromCart = (productId) => {

@@ -80,7 +80,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <FiPhone className="text-rose-400" />
-                +1 (555) 123-4567
+                +1 (929) 253-2497
               </li>
             </ul>
           </div>

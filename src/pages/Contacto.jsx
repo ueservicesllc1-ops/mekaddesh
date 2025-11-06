@@ -32,8 +32,8 @@ const Contacto = () => {
     {
       icon: FiPhone,
       title: 'Teléfono',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      content: '+1 (929) 253-2497',
+      link: 'tel:+19292532497',
     },
     {
       icon: FiMapPin,
@@ -179,7 +179,7 @@ const Contacto = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+1 (929) 253-2497"
                   />
                 </div>
                 <div>

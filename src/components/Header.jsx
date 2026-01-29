@@ -3,8 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiShoppingBag, FiMenu, FiX, FiShield } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
+  const { t } = useTranslation();
   const { getTotalItems } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const location = useLocation();
@@ -40,48 +43,45 @@ const Header = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/"
-                className={`transition-colors font-medium ${
-                  isActive('/')
+                className={`transition-colors font-medium ${isActive('/')
                     ? 'text-rose-600 border-b-2 border-rose-600 pb-1'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
               >
-                Inicio
+                {t('nav.home')}
               </Link>
               <Link
                 to="/productos"
-                className={`transition-colors font-medium ${
-                  isActive('/productos')
+                className={`transition-colors font-medium ${isActive('/productos')
                     ? 'text-rose-600 border-b-2 border-rose-600 pb-1'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
               >
-                Productos
+                {t('nav.products')}
               </Link>
               <Link
                 to="/sobre"
-                className={`transition-colors font-medium ${
-                  isActive('/sobre')
+                className={`transition-colors font-medium ${isActive('/sobre')
                     ? 'text-rose-600 border-b-2 border-rose-600 pb-1'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
               >
-                Sobre Nosotros
+                {t('nav.about')}
               </Link>
               <Link
                 to="/contacto"
-                className={`transition-colors font-medium ${
-                  isActive('/contacto')
+                className={`transition-colors font-medium ${isActive('/contacto')
                     ? 'text-rose-600 border-b-2 border-rose-600 pb-1'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
               >
-                Contacto
+                {t('nav.contact')}
               </Link>
             </nav>
 
             {/* Actions */}
             <div className="flex items-center gap-3">
+              <LanguageSelector />
               {/* Admin Button */}
               <Link to="/admin">
                 <motion.div
@@ -138,58 +138,53 @@ const Header = () => {
             >
               <Link
                 to="/"
-                className={`block transition-colors ${
-                  isActive('/')
+                className={`block transition-colors ${isActive('/')
                     ? 'text-rose-600 font-semibold'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Inicio
+                {t('nav.home')}
               </Link>
               <Link
                 to="/productos"
-                className={`block transition-colors ${
-                  isActive('/productos')
+                className={`block transition-colors ${isActive('/productos')
                     ? 'text-rose-600 font-semibold'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Productos
+                {t('nav.products')}
               </Link>
               <Link
                 to="/sobre"
-                className={`block transition-colors ${
-                  isActive('/sobre')
+                className={`block transition-colors ${isActive('/sobre')
                     ? 'text-rose-600 font-semibold'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Sobre Nosotros
+                {t('nav.about')}
               </Link>
               <Link
                 to="/contacto"
-                className={`block transition-colors ${
-                  isActive('/contacto')
+                className={`block transition-colors ${isActive('/contacto')
                     ? 'text-rose-600 font-semibold'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contacto
+                {t('nav.contact')}
               </Link>
               <Link
                 to="/carrito"
-                className={`block transition-colors relative ${
-                  isActive('/carrito')
+                className={`block transition-colors relative ${isActive('/carrito')
                     ? 'text-rose-600 font-semibold'
                     : 'text-gray-700 hover:text-rose-600'
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Carrito
+                {t('nav.cart')}
                 {totalItems > 0 && (
                   <span className="absolute -top-1 -right-1 bg-mekadesh-gold-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                     {totalItems}

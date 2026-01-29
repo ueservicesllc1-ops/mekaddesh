@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiShoppingCart, FiHeart, FiStar } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
+
 import { useProducts } from '../context/ProductsContext';
+import { useTranslation } from 'react-i18next';
 
 const ProductCard = ({ product, index }) => {
+  const { t } = useTranslation();
   const { addToCart } = useCart();
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
@@ -45,11 +48,10 @@ const ProductCard = ({ product, index }) => {
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsLiked(!isLiked)}
-          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm transition-colors ${
-            isLiked
-              ? 'bg-rose-500 text-white'
-              : 'bg-white/80 text-gray-700 hover:bg-white'
-          }`}
+          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm transition-colors ${isLiked
+            ? 'bg-rose-500 text-white'
+            : 'bg-white/80 text-gray-700 hover:bg-white'
+            }`}
         >
           <FiHeart className={`${isLiked ? 'fill-current' : ''}`} />
         </motion.button>
@@ -69,7 +71,9 @@ const ProductCard = ({ product, index }) => {
           {product.name}
         </h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-          {product.description}
+          {product.name === 'Facial Cleanser' || product.name === 'Facial Cream' || product.name === 'Hyaluronic Acid'
+            ? t(`products_data.${product.name}.description`)
+            : product.description}
         </p>
 
         <div className="flex items-center justify-between">
@@ -101,6 +105,7 @@ const ProductCard = ({ product, index }) => {
 };
 
 const Products = ({ showHeader = true }) => {
+  const { t } = useTranslation();
   const { products, loading, error } = useProducts();
 
   if (loading) {
@@ -111,7 +116,7 @@ const Products = ({ showHeader = true }) => {
       >
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">Cargando productos...</p>
+            <p className="text-gray-600 text-lg">{t('products_component.loading')}</p>
           </div>
         </div>
       </section>
@@ -126,7 +131,7 @@ const Products = ({ showHeader = true }) => {
       >
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
-            <p className="text-red-600 text-lg">Error al cargar productos: {error}</p>
+            <p className="text-red-600 text-lg">{t('products_component.error')} {error}</p>
           </div>
         </div>
       </section>
@@ -148,19 +153,18 @@ const Products = ({ showHeader = true }) => {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
-              <span className="text-gradient-gold">Nuestros</span>{' '}
-              <span className="text-gray-800">Productos</span>
+              <span className="text-gradient-gold">{t('products_component.title_our')}</span>{' '}
+              <span className="text-gray-800">{t('products_component.title_products')}</span>
             </h2>
             <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Descubre nuestra selección premium de productos de belleza
-              cuidadosamente formulados para ti
+              {t('products_component.subtitle')}
             </p>
           </motion.div>
         )}
 
         {products.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No hay productos disponibles</p>
+            <p className="text-gray-600 text-lg">{t('products_component.empty')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">

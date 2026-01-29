@@ -1,0 +1,185 @@
+{
+    "nav": {
+        "home": "Home",
+        "products": "Products",
+        "about": "About Us",
+        "contact": "Contact",
+        "cart": "Cart",
+        "admin": "Admin"
+    },
+    "hero": {
+        "title1": "Your Beauty,",
+        "title2": "Our Passion",
+        "cta_products": "Explore Products",
+        "cta_about": "Learn More"
+    },
+    "featured": {
+        "title_products": "Featured",
+        "title_featured": "Products",
+        "subtitle": "Discover our most popular and top-rated products",
+        "view_all": "View All Products"
+    },
+    "testimonials": {
+        "title_say": "What",
+        "title_customers": "Our Customers Say",
+        "subtitle": "Thousands of satisfied customers trust Mekaddesh for their beauty routine",
+        "stats": {
+            "rating": "Average Rating",
+            "satisfied": "Satisfied Customers",
+            "recommend": "Would Recommend",
+            "premium": "Premium Products"
+        },
+        "reviews": {
+            "1": {
+                "text": "Mekaddesh products have transformed my beauty routine. My skin has never felt so soft and radiant. Highly recommended!",
+                "name": "Sarah Johnson",
+                "location": "New York, NY"
+            },
+            "2": {
+                "text": "Incredible quality. The revitalizing serum is my favorite product. I noticed results from the first week. Worth every penny!",
+                "name": "Emily Rodriguez",
+                "location": "New Jersey"
+            },
+            "3": {
+                "text": "Mekaddesh exceeded all my expectations. The products are natural, effective, and customer service is exceptional. Thank you!",
+                "name": "Jessica Martinez",
+                "location": "New York, NY"
+            },
+            "4": {
+                "text": "Since using the golden moisturizing cream, my skin looks younger and brighter. My friends are already asking what I'm using.",
+                "name": "Amanda Thompson",
+                "location": "New Jersey"
+            },
+            "5": {
+                "text": "The complete kit is perfect to start. All products work in harmony and results are visible quickly.",
+                "name": "Olivia Brown",
+                "location": "New York, NY"
+            },
+            "6": {
+                "text": "Luxury products at a fair price. The quality is exceptional and the packaging is beautiful. I will definitely buy again.",
+                "name": "Sophia Williams",
+                "location": "New Jersey"
+            }
+        }
+    },
+    "cart_page": {
+        "title": "Shopping Cart",
+        "product_singular": "product",
+        "product_plural": "products",
+        "back_to_store": "Back to Store",
+        "empty_title": "Your cart is empty",
+        "empty_message": "Add products to start shopping",
+        "view_products": "View Products",
+        "subtotal": "Subtotal:",
+        "item_subtotal": "Subtotal:",
+        "remove_tooltip": "Remove from cart",
+        "summary_title": "Order Summary",
+        "shipping": "Shipping:",
+        "shipping_free": "Free",
+        "total": "Total:",
+        "checkout_btn": "Proceed to Checkout",
+        "clear_btn": "Clear Cart",
+        "continue": "Continue shopping"
+    },
+    "products_page": {
+        "title_our": "Our",
+        "title_products": "Products",
+        "subtitle": "Discover our exclusive collection of beauty products carefully formulated to enhance your natural beauty"
+    },
+    "products_component": {
+        "loading": "Loading products...",
+        "error": "Error loading products:",
+        "empty": "No products available",
+        "title_our": "Our",
+        "title_products": "Products",
+        "subtitle": "Discover our premium selection of beauty products carefully formulated for you"
+    },
+    "products_data": {
+        "Facial Cleanser": {
+            "name": "Facial Cleanser",
+            "description": "Gentle facial cleanser that removes impurities, excess oil, and residue without drying the skin. Leaves face fresh, balanced, and ready for hydration, maintaining a light and natural feeling."
+        },
+        "Facial Cream": {
+            "name": "Facial Cream",
+            "description": "Fast-absorbing nourishing facial cream that deeply hydrates and helps keep skin soft, firm, and radiant. Protects the skin barrier, improves texture, and leaves a natural, healthy finish all day long."
+        },
+        "Hyaluronic Acid": {
+            "name": "Hyaluronic Acid",
+            "description": "High-purity hydrating serum that helps retain skin's natural moisture, leaving it softer, brighter, and smoother. Reduces fine lines, improves elasticity, and adds a healthy glow from the first application."
+        }
+    },
+    "footer": {
+        "slogan": "Your beauty is our passion. Premium products for radiant skin.",
+        "quick_links": "Quick Links",
+        "rights": "© 2025 Mekaddesh. All rights reserved.",
+        "powered": "Powered and designed by Freedom Labs"
+    },
+    "about": {
+        "title": "About",
+        "subtitle": "We are a brand committed to your beauty and wellness, offering carefully selected products to enhance your natural beauty. Our mission is to provide the highest quality products that celebrate and enhance your unique beauty.",
+        "badge_leader": "Leading Beauty Brand",
+        "stats": {
+            "satisfied": "Satisfied Customers",
+            "products": "Premium Products",
+            "years": "Years of Experience",
+            "satisfaction": "Satisfaction"
+        },
+        "features": {
+            "premium": {
+                "title": "Premium Quality",
+                "desc": "Highest quality products with natural ingredients"
+            },
+            "care": {
+                "title": "Personalized Care",
+                "desc": "Each product is designed with your well-being in mind"
+            },
+            "natural": {
+                "title": "Natural Beauty",
+                "desc": "Enhance your natural beauty without harsh products"
+            },
+            "safe": {
+                "title": "Safe and Tested",
+                "desc": "All our products are dermatologically tested"
+            }
+        },
+        "mission": {
+            "title": "Our",
+            "highlight": "Mission",
+            "p1": "At Mekaddesh, we believe everyone deserves to feel beautiful and confident. That's why we dedicate ourselves to creating products that not only enhance your outer beauty but also nourish your inner well-being.",
+            "p2": "We work with natural and sustainable ingredients, ensuring each product is safe, effective, and environmentally friendly."
+        },
+        "team": {
+            "title": "Our Team",
+            "desc": "Our team consists of beauty experts, dermatologists, and scientists working together to create innovative products that truly work. Each product undergoes rigorous testing to ensure maximum quality."
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "We are here to help. Send us a message and we will respond as soon as possible.",
+        "info_title": "Contact",
+        "info_highlight": "Information",
+        "form_title": "Send us a",
+        "form_highlight": "Message",
+        "social_title": "Follow us on Social Media",
+        "labels": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "message": "Message",
+            "location": "Location"
+        },
+        "placeholders": {
+            "name": "Your name",
+            "email": "your@email.com",
+            "phone": "+1 (929) 253-2497",
+            "message": "Your message..."
+        },
+        "submit": "Send Message",
+        "success": "Thank you for your message! We will contact you soon."
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success"
+    }
+}

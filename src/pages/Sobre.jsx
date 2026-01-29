@@ -1,38 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiHeart, FiStar, FiShield, FiUsers, FiTrendingUp } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
-const features = [
+const getFeatures = (t) => [
   {
     icon: FiAward,
-    title: 'Calidad Premium',
-    description: 'Productos de la más alta calidad con ingredientes naturales',
+    title: t('about.features.premium.title'),
+    description: t('about.features.premium.desc'),
   },
   {
     icon: FiHeart,
-    title: 'Cuidado Personalizado',
-    description: 'Cada producto está diseñado pensando en tu bienestar',
+    title: t('about.features.care.title'),
+    description: t('about.features.care.desc'),
   },
   {
     icon: FiStar,
-    title: 'Belleza Natural',
-    description: 'Realza tu belleza natural sin productos agresivos',
+    title: t('about.features.natural.title'),
+    description: t('about.features.natural.desc'),
   },
   {
     icon: FiShield,
-    title: 'Seguro y Probado',
-    description: 'Todos nuestros productos son dermatológicamente probados',
+    title: t('about.features.safe.title'),
+    description: t('about.features.safe.desc'),
   },
 ];
 
-const stats = [
-  { number: '10K+', label: 'Clientes Satisfechos' },
-  { number: '50+', label: 'Productos Premium' },
-  { number: '15+', label: 'Años de Experiencia' },
-  { number: '98%', label: 'Satisfacción' },
+const getStats = (t) => [
+  { number: '10K+', label: t('about.stats.satisfied') },
+  { number: '50+', label: t('about.stats.products') },
+  { number: '15+', label: t('about.stats.years') },
+  { number: '98%', label: t('about.stats.satisfaction') },
 ];
 
 const Sobre = () => {
+  const { t } = useTranslation();
+  const features = getFeatures(t);
+  const stats = getStats(t);
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -45,18 +50,15 @@ const Sobre = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gray-800">Sobre</span>{' '}
+              <span className="text-gray-800">{t('about.title')}</span>{' '}
               <span className="text-gradient-gold">Mekaddesh</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Somos una marca comprometida con tu belleza y bienestar, ofreciendo
-              productos cuidadosamente seleccionados para realzar tu belleza natural.
-              Nuestra misión es proporcionar productos de la más alta calidad que
-              celebren y realcen tu belleza única.
+              {t('about.subtitle')}
             </p>
             <div className="flex items-center justify-center gap-2 mb-8">
               <FiTrendingUp className="text-rose-600 text-2xl" />
-              <span className="text-rose-600 font-semibold">Marca Líder en Belleza</span>
+              <span className="text-rose-600 font-semibold">{t('about.badge_leader')}</span>
             </div>
           </motion.div>
         </div>
@@ -128,18 +130,13 @@ const Sobre = () => {
               className="text-center md:text-left"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 -mt-4 md:mt-0">
-                Nuestra <span className="text-gradient-gold">Misión</span>
+                {t('about.mission.title')} <span className="text-gradient-gold">{t('about.mission.highlight')}</span>
               </h2>
               <p className="text-base md:text-lg text-gray-600 mb-4">
-                En Mekaddesh, creemos que cada persona merece sentirse hermosa y
-                confiada. Por eso, nos dedicamos a crear productos que no solo
-                realzan tu belleza exterior, sino que también nutren tu bienestar
-                interior.
+                {t('about.mission.p1')}
               </p>
               <p className="text-base md:text-lg text-gray-600">
-                Trabajamos con ingredientes naturales y sostenibles, asegurándonos
-                de que cada producto sea seguro, efectivo y respetuoso con el medio
-                ambiente.
+                {t('about.mission.p2')}
               </p>
             </motion.div>
             <motion.div
@@ -153,13 +150,10 @@ const Sobre = () => {
                 <div className="p-4 bg-white rounded-full">
                   <FiUsers className="text-3xl text-rose-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800">Nuestro Equipo</h3>
+                <h3 className="text-2xl font-bold text-gray-800">{t('about.team.title')}</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Nuestro equipo está formado por expertos en belleza, dermatólogos
-                y científicos que trabajan juntos para crear productos innovadores
-                que realmente funcionan. Cada producto pasa por rigurosas pruebas
-                para garantizar la máxima calidad.
+                {t('about.team.desc')}
               </p>
             </motion.div>
           </div>

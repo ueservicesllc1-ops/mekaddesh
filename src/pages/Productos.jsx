@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Products from '../components/Products';
+import { useTranslation } from 'react-i18next';
 
 const Productos = () => {
+  const { t } = useTranslation();
   return (
     <div className="pt-20">
       <section className="py-8 md:py-20 bg-gradient-to-b from-white to-rose-50">
@@ -14,12 +16,11 @@ const Productos = () => {
             className="text-center mb-8 md:mb-16"
           >
             <h1 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
-              <span className="text-gradient-gold">Nuestros</span>{' '}
-              <span className="text-gray-800">Productos</span>
+              <span className="text-gradient-gold">{t('products_page.title_our')}</span>{' '}
+              <span className="text-gray-800">{t('products_page.title_products')}</span>
             </h1>
             <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Descubre nuestra exclusiva colección de productos de belleza
-              cuidadosamente formulados para realzar tu belleza natural
+              {t('products_page.subtitle')}
             </p>
           </motion.div>
         </div>

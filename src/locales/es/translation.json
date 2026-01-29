@@ -1,0 +1,185 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "products": "Productos",
+        "about": "Sobre Nosotros",
+        "contact": "Contacto",
+        "cart": "Carrito",
+        "admin": "Admin"
+    },
+    "hero": {
+        "title1": "Tu Belleza,",
+        "title2": "Nuestra Pasión",
+        "cta_products": "Explorar Productos",
+        "cta_about": "Conoce Más"
+    },
+    "featured": {
+        "title_products": "Productos",
+        "title_featured": "Destacados",
+        "subtitle": "Descubre nuestros productos más populares y mejor valorados",
+        "view_all": "Ver Todos los Productos"
+    },
+    "testimonials": {
+        "title_say": "Lo Que Dicen",
+        "title_customers": "Nuestros Clientes",
+        "subtitle": "Miles de clientes satisfechos confían en Mekaddesh para su rutina de belleza",
+        "stats": {
+            "rating": "Calificación Promedio",
+            "satisfied": "Clientes Satisfechos",
+            "recommend": "Recomendarían",
+            "premium": "Productos Premium"
+        },
+        "reviews": {
+            "1": {
+                "text": "Los productos de Mekaddesh han transformado mi rutina de belleza. Mi piel nunca se había sentido tan suave y radiante. ¡Altamente recomendados!",
+                "name": "Sarah Johnson",
+                "location": "New York, NY"
+            },
+            "2": {
+                "text": "Increíble calidad. El serum revitalizante es mi producto favorito. Noté resultados desde la primera semana. ¡Vale cada centavo!",
+                "name": "Emily Rodriguez",
+                "location": "New Jersey"
+            },
+            "3": {
+                "text": "Mekaddesh superó todas mis expectativas. Los productos son naturales, efectivos y el servicio al cliente es excepcional. ¡Gracias!",
+                "name": "Jessica Martinez",
+                "location": "New York, NY"
+            },
+            "4": {
+                "text": "Desde que uso la crema hidratante dorada, mi piel se ve más joven y luminosa. Mis amigas ya me preguntan qué estoy usando.",
+                "name": "Amanda Thompson",
+                "location": "New Jersey"
+            },
+            "5": {
+                "text": "El kit completo es perfecto para comenzar. Todos los productos trabajan en armonía y los resultados son visibles rápidamente.",
+                "name": "Olivia Brown",
+                "location": "New York, NY"
+            },
+            "6": {
+                "text": "Productos de lujo a un precio justo. La calidad es excepcional y el empaque es hermoso. Definitivamente volveré a comprar.",
+                "name": "Sophia Williams",
+                "location": "New Jersey"
+            }
+        }
+    },
+    "cart_page": {
+        "title": "Carrito de Compras",
+        "product_singular": "producto",
+        "product_plural": "productos",
+        "back_to_store": "Volver a la tienda",
+        "empty_title": "Tu carrito está vacío",
+        "empty_message": "Agrega productos para comenzar a comprar",
+        "view_products": "Ver Productos",
+        "subtotal": "Subtotal:",
+        "item_subtotal": "Subtotal:",
+        "remove_tooltip": "Eliminar del carrito",
+        "summary_title": "Resumen del Pedido",
+        "shipping": "Envío:",
+        "shipping_free": "Gratis",
+        "total": "Total:",
+        "checkout_btn": "Proceder al Pago",
+        "clear_btn": "Vaciar Carrito",
+        "continue": "Continuar comprando"
+    },
+    "products_page": {
+        "title_our": "Nuestros",
+        "title_products": "Productos",
+        "subtitle": "Descubre nuestra exclusiva colección de productos de belleza cuidadosamente formulados para realzar tu belleza natural"
+    },
+    "products_component": {
+        "loading": "Cargando productos...",
+        "error": "Error al cargar productos:",
+        "empty": "No hay productos disponibles",
+        "title_our": "Nuestros",
+        "title_products": "Productos",
+        "subtitle": "Descubre nuestra selección premium de productos de belleza cuidadosamente formulados para ti"
+    },
+    "products_data": {
+        "Facial Cleanser": {
+            "name": "Limpiador Facial",
+            "description": "Limpiador facial suave que elimina impurezas, exceso de grasa y residuos sin resecar la piel. Deja el rostro fresco, equilibrado y listo para la hidratación, manteniendo una sensación ligera y natural."
+        },
+        "Facial Cream": {
+            "name": "Crema Facial",
+            "description": "Crema facial nutritiva de rápida absorción que hidrata profundamente y ayuda a mantener la piel suave, firme y radiante. Protege la barrera cutánea, mejora la textura y deja un acabado natural y saludable durante todo el día."
+        },
+        "Hyaluronic Acid": {
+            "name": "Ácido Hialurónico",
+            "description": "Sérum hidratante de alta pureza que ayuda a retener la humedad natural de la piel, dejándola más suave, luminosa y tersa. Reduce líneas finas, mejora la elasticidad y aporta un brillo saludable desde la primera aplicación."
+        }
+    },
+    "footer": {
+        "slogan": "Tu belleza es nuestra pasión. Productos premium para una piel radiante.",
+        "quick_links": "Enlaces Rápidos",
+        "rights": "© 2025 Mekaddesh. Todos los derechos reservados.",
+        "powered": "Powered and designed by Freedom Labs"
+    },
+    "about": {
+        "title": "Sobre",
+        "subtitle": "Somos una marca comprometida con tu belleza y bienestar, ofreciendo productos cuidadosamente seleccionados para realzar tu belleza natural. Nuestra misión es proporcionar productos de la más alta calidad que celebren y realcen tu belleza única.",
+        "badge_leader": "Marca Líder en Belleza",
+        "stats": {
+            "satisfied": "Clientes Satisfechos",
+            "products": "Productos Premium",
+            "years": "Años de Experiencia",
+            "satisfaction": "Satisfacción"
+        },
+        "features": {
+            "premium": {
+                "title": "Calidad Premium",
+                "desc": "Productos de la más alta calidad con ingredientes naturales"
+            },
+            "care": {
+                "title": "Cuidado Personalizado",
+                "desc": "Cada producto está diseñado pensando en tu bienestar"
+            },
+            "natural": {
+                "title": "Belleza Natural",
+                "desc": "Realza tu belleza natural sin productos agresivos"
+            },
+            "safe": {
+                "title": "Seguro y Probado",
+                "desc": "Todos nuestros productos son dermatológicamente probados"
+            }
+        },
+        "mission": {
+            "title": "Nuestra",
+            "highlight": "Misión",
+            "p1": "En Mekaddesh, creemos que cada persona merece sentirse hermosa y confiada. Por eso, nos dedicamos a crear productos que no solo realzan tu belleza exterior, sino que también nutren tu bienestar interior.",
+            "p2": "Trabajamos con ingredientes naturales y sostenibles, asegurándonos de que cada producto sea seguro, efectivo y respetuoso con el medio ambiente."
+        },
+        "team": {
+            "title": "Nuestro Equipo",
+            "desc": "Nuestro equipo está formado por expertos en belleza, dermatólogos y científicos que trabajan juntos para crear productos innovadores que realmente funcionan. Cada producto pasa por rigurosas pruebas para garantizar la máxima calidad."
+        }
+    },
+    "contact": {
+        "title": "Contacto",
+        "subtitle": "Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.",
+        "info_title": "Información de",
+        "info_highlight": "Contacto",
+        "form_title": "Envíanos un",
+        "form_highlight": "Mensaje",
+        "social_title": "Síguenos en Redes Sociales",
+        "labels": {
+            "name": "Nombre",
+            "email": "Email",
+            "phone": "Teléfono",
+            "message": "Mensaje",
+            "location": "Ubicación"
+        },
+        "placeholders": {
+            "name": "Tu nombre",
+            "email": "tu@email.com",
+            "phone": "+1 (929) 253-2497",
+            "message": "Tu mensaje..."
+        },
+        "submit": "Enviar Mensaje",
+        "success": "¡Gracias por tu mensaje! Te contactaremos pronto."
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito"
+    }
+}

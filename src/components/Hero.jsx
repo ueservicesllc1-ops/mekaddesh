@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="inicio"
@@ -45,7 +47,7 @@ const Hero = () => {
           // Usar porcentajes para distribuir en todo el ancho
           const randomXPercent = Math.random() * 100;
           const randomYPercent = Math.random() * 100;
-          
+
           return (
             <motion.div
               key={i}
@@ -116,10 +118,10 @@ const Hero = () => {
             className="text-2xl md:text-5xl font-bold mb-4 px-2 md:px-0 -mt-4 md:mt-0"
           >
             <span className="text-gray-800">
-              Tu Belleza,
+              {t('hero.title1')}
             </span>
             <br />
-            <span className="text-gradient-rose">Nuestra Pasión</span>
+            <span className="text-gradient-rose">{t('hero.title2')}</span>
           </motion.h1>
 
           <motion.div
@@ -134,7 +136,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-full font-semibold text-sm md:text-base shadow-rose hover:shadow-xl transition-all flex items-center gap-2 cursor-pointer"
               >
-                Explorar Productos
+                {t('hero.cta_products')}
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform text-sm md:text-base" />
               </motion.div>
             </Link>
@@ -145,7 +147,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-4 py-2 md:px-6 md:py-3 bg-white/80 backdrop-blur-sm text-rose-600 rounded-full font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all border-2 border-rose-200 cursor-pointer"
               >
-                Conoce Más
+                {t('hero.cta_about')}
               </motion.div>
             </Link>
           </motion.div>

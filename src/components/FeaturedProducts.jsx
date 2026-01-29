@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiShoppingCart, FiHeart, FiStar } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useProducts } from '../context/ProductsContext';
+import { useTranslation } from 'react-i18next';
 
 const ProductCard = ({ product, index }) => {
   const { addToCart } = useCart();
@@ -46,11 +47,10 @@ const ProductCard = ({ product, index }) => {
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsLiked(!isLiked)}
-          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm transition-colors ${
-            isLiked
+          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-sm transition-colors ${isLiked
               ? 'bg-rose-500 text-white'
               : 'bg-white/80 text-gray-700 hover:bg-white'
-          }`}
+            }`}
         >
           <FiHeart className={`${isLiked ? 'fill-current' : ''}`} />
         </motion.button>
@@ -102,6 +102,7 @@ const ProductCard = ({ product, index }) => {
 };
 
 const FeaturedProducts = () => {
+  const { t } = useTranslation();
   const { getFeaturedProducts } = useProducts();
   const featuredProducts = getFeaturedProducts();
 
@@ -116,11 +117,11 @@ const FeaturedProducts = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
-            <span className="text-gradient-gold">Productos</span>{' '}
-            <span className="text-gray-800">Destacados</span>
+            <span className="text-gradient-gold">{t('featured.title_products')}</span>{' '}
+            <span className="text-gray-800">{t('featured.title_featured')}</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Descubre nuestros productos más populares y mejor valorados
+            {t('featured.subtitle')}
           </p>
         </motion.div>
 
@@ -141,7 +142,7 @@ const FeaturedProducts = () => {
             to="/productos"
             className="inline-block px-8 py-4 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-full font-semibold text-lg shadow-rose hover:shadow-xl transition-all cursor-pointer"
           >
-            Ver Todos los Productos
+            {t('featured.view_all')}
           </Link>
         </motion.div>
       </div>

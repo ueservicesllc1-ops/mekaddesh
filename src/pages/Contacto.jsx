@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ const Contacto = () => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para enviar el formulario
     console.log('Form submitted:', formData);
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+    alert(t('contact.success'));
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
@@ -22,7 +23,7 @@ const Contacto = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const contactInfo = [
+  const getContactInfo = (t) => [
     {
       icon: FiMail,
       title: 'Email',
@@ -31,17 +32,20 @@ const Contacto = () => {
     },
     {
       icon: FiPhone,
-      title: 'Teléfono',
+      title: t('contact.labels.phone'),
       content: '+1 (929) 253-2497',
       link: 'tel:+19292532497',
     },
     {
       icon: FiMapPin,
-      title: 'Ubicación',
+      title: t('contact.labels.location'),
       content: 'Ciudad, País',
       link: '#',
     },
   ];
+
+  const { t } = useTranslation();
+  const contactInfo = getContactInfo(t);
 
   return (
     <div className="pt-20">
@@ -55,11 +59,10 @@ const Contacto = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient-gold">Contacto</span>
+              <span className="text-gradient-gold">{t('contact.title')}</span>
             </h1>
             <p className="text-xl text-gray-600">
-              Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos
-              lo antes posible.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -76,7 +79,7 @@ const Contacto = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl font-bold text-gray-800 mb-8">
-                Información de <span className="text-gradient-rose">Contacto</span>
+                {t('contact.info_title')} <span className="text-gradient-rose">{t('contact.info_highlight')}</span>
               </h2>
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
@@ -102,7 +105,7 @@ const Contacto = () => {
               {/* Social Media */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Síguenos en Redes Sociales
+                  {t('contact.social_title')}
                 </h3>
                 <div className="flex gap-4">
                   <motion.a
@@ -138,12 +141,12 @@ const Contacto = () => {
               className="bg-gradient-rose p-8 rounded-2xl shadow-lg"
             >
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                Envíanos un <span className="text-gradient-gold">Mensaje</span>
+                {t('contact.form_title')} <span className="text-gradient-gold">{t('contact.form_highlight')}</span>
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Nombre
+                    {t('contact.labels.name')}
                   </label>
                   <input
                     type="text"
@@ -152,12 +155,12 @@ const Contacto = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white"
-                    placeholder="Tu nombre"
+                    placeholder={t('contact.placeholders.name')}
                   />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Email
+                    {t('contact.labels.email')}
                   </label>
                   <input
                     type="email"
@@ -166,12 +169,12 @@ const Contacto = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white"
-                    placeholder="tu@email.com"
+                    placeholder={t('contact.placeholders.email')}
                   />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Teléfono
+                    {t('contact.labels.phone')}
                   </label>
                   <input
                     type="tel"
@@ -179,12 +182,12 @@ const Contacto = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white"
-                    placeholder="+1 (929) 253-2497"
+                    placeholder={t('contact.placeholders.phone')}
                   />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Mensaje
+                    {t('contact.labels.message')}
                   </label>
                   <textarea
                     name="message"
@@ -193,7 +196,7 @@ const Contacto = () => {
                     required
                     rows="5"
                     className="w-full px-4 py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white resize-none"
-                    placeholder="Tu mensaje..."
+                    placeholder={t('contact.placeholders.message')}
                   />
                 </div>
                 <motion.button
@@ -202,7 +205,7 @@ const Contacto = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-4 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-lg font-semibold text-lg shadow-rose hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
-                  Enviar Mensaje
+                  {t('contact.submit')}
                   <FiSend />
                 </motion.button>
               </form>

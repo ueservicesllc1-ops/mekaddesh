@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiShoppingCart, FiPlus, FiMinus, FiTrash2, FiArrowLeft } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
+import { useTranslation } from 'react-i18next';
 
 const Carrito = () => {
+  const { t } = useTranslation();
   const {
     cart,
     removeFromCart,
@@ -28,17 +30,17 @@ const Carrito = () => {
             className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600 hover:text-rose-600 transition-colors mb-3 md:mb-6"
           >
             <FiArrowLeft />
-            <span>Volver a la tienda</span>
+            <span>{t('cart_page.back_to_store')}</span>
           </Link>
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
             <div className="flex items-center gap-2 md:gap-3">
               <FiShoppingCart className="text-xl md:text-3xl text-rose-600" />
               <h1 className="text-2xl md:text-5xl font-bold text-gray-800">
-                Carrito de Compras
+                {t('cart_page.title')}
               </h1>
             </div>
             {cart.length > 0 && (
-              <span className="text-sm md:text-lg text-gray-500">({cart.length} {cart.length === 1 ? 'producto' : 'productos'})</span>
+              <span className="text-sm md:text-lg text-gray-500">({cart.length} {cart.length === 1 ? t('cart_page.product_singular') : t('cart_page.product_plural')})</span>
             )}
           </div>
         </motion.div>
@@ -52,16 +54,16 @@ const Carrito = () => {
           >
             <FiShoppingCart className="text-6xl md:text-8xl text-gray-300 mb-4 md:mb-6" />
             <h2 className="text-2xl md:text-3xl font-bold text-gray-700 mb-3 md:mb-4">
-              Tu carrito está vacío
+              {t('cart_page.empty_title')}
             </h2>
             <p className="text-base md:text-xl text-gray-500 mb-6 md:mb-8">
-              Agrega productos para comenzar a comprar
+              {t('cart_page.empty_message')}
             </p>
             <Link
               to="/productos"
               className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-full font-semibold text-base md:text-lg shadow-rose hover:shadow-xl transition-all"
             >
-              Ver Productos
+              {t('cart_page.view_products')}
             </Link>
           </motion.div>
         ) : (
@@ -88,7 +90,9 @@ const Carrito = () => {
                     />
                     <div className="flex-1 min-w-0">
                       <h3 className="text-base md:text-xl font-bold text-gray-800 mb-1 md:mb-2 line-clamp-2">
-                        {item.name}
+                        {item.name === 'Facial Cleanser' || item.name === 'Facial Cream' || item.name === 'Hyaluronic Acid'
+                          ? t(`products_data.${item.name}.name`)
+                          : item.name}
                       </h3>
                       <p className="text-lg md:text-2xl font-bold text-gradient-gold mb-2 md:mb-4">
                         ${item.price}
@@ -118,13 +122,13 @@ const Carrito = () => {
                           </motion.button>
                         </div>
                         <div className="text-sm md:text-lg font-semibold text-gray-700">
-                          Subtotal: <span className="text-gradient-gold">${(item.price * item.quantity).toFixed(2)}</span>
+                          {t('cart_page.item_subtotal')} <span className="text-gradient-gold">${(item.price * item.quantity).toFixed(2)}</span>
                         </div>
                         <motion.button
                           whileTap={{ scale: 0.9 }}
                           onClick={() => removeFromCart(item.id)}
                           className="ml-auto sm:ml-0 p-2 md:p-3 hover:bg-rose-100 rounded-lg transition-colors text-rose-600"
-                          title="Eliminar del carrito"
+                          title={t('cart_page.remove_tooltip')}
                         >
                           <FiTrash2 className="text-lg md:text-xl" />
                         </motion.button>
@@ -144,21 +148,21 @@ const Carrito = () => {
                 className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-rose-100 sticky top-20 md:top-24"
               >
                 <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
-                  Resumen del Pedido
+                  {t('cart_page.summary_title')}
                 </h2>
-                
+
                 <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
                   <div className="flex justify-between text-sm md:text-base text-gray-600">
-                    <span>Subtotal:</span>
+                    <span>{t('cart_page.subtotal')}</span>
                     <span className="font-semibold">${getTotalPrice().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm md:text-base text-gray-600">
-                    <span>Envío:</span>
-                    <span className="font-semibold">Gratis</span>
+                    <span>{t('cart_page.shipping')}</span>
+                    <span className="font-semibold">{t('cart_page.shipping_free')}</span>
                   </div>
                   <div className="border-t border-rose-200 pt-3 md:pt-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-lg md:text-xl font-bold text-gray-800">Total:</span>
+                      <span className="text-lg md:text-xl font-bold text-gray-800">{t('cart_page.total')}</span>
                       <span className="text-2xl md:text-3xl font-bold text-gradient-gold">
                         ${getTotalPrice().toFixed(2)}
                       </span>
@@ -172,23 +176,23 @@ const Carrito = () => {
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-3 md:py-4 bg-gradient-to-r from-rose-500 to-rose-600 text-white rounded-xl font-semibold text-base md:text-lg shadow-rose hover:shadow-xl transition-all mb-2 md:mb-3"
                   >
-                    Proceder al Pago
+                    {t('cart_page.checkout_btn')}
                   </motion.button>
                 </Link>
-                
+
                 <motion.button
                   whileTap={{ scale: 0.98 }}
                   onClick={clearCart}
                   className="w-full py-2.5 md:py-3 text-rose-600 hover:bg-rose-50 rounded-xl transition-colors font-medium text-sm md:text-base border border-rose-200"
                 >
-                  Vaciar Carrito
+                  {t('cart_page.clear_btn')}
                 </motion.button>
 
                 <Link
                   to="/productos"
                   className="block text-center mt-3 md:mt-4 text-sm md:text-base text-gray-600 hover:text-rose-600 transition-colors"
                 >
-                  Continuar comprando
+                  {t('cart_page.continue')}
                 </Link>
               </motion.div>
             </div>

@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiInstagram, FiFacebook, FiTwitter, FiMail, FiPhone } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer id="contacto" className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12">
       <div className="container mx-auto px-4">
@@ -16,7 +18,7 @@ const Footer = () => {
               className="h-16 mb-4 object-contain filter-gold"
             />
             <p className="text-gray-400 mb-4">
-              Tu belleza es nuestra pasión. Productos premium para una piel radiante.
+              {t('footer.slogan')}
             </p>
             <div className="flex gap-4">
               <motion.a
@@ -45,26 +47,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Enlaces Rápidos</h4>
+            <h4 className="text-xl font-semibold mb-4">{t('footer.quick_links')}</h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  Inicio
+                  {t('nav.home')}
                 </Link>
               </li>
               <li>
                 <Link to="/productos" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  Productos
+                  {t('nav.products')}
                 </Link>
               </li>
               <li>
                 <Link to="/sobre" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  Sobre Nosotros
+                  {t('nav.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/contacto" className="text-gray-400 hover:text-rose-400 transition-colors">
-                  Contacto
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
@@ -72,7 +74,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Contacto</h4>
+            <h4 className="text-xl font-semibold mb-4">{t('nav.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400">
                 <FiMail className="text-rose-400" />
@@ -87,8 +89,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Mekaddesh. Todos los derechos reservados.</p>
-          <p className="mt-2 text-sm">Powered and designed by Freedom Labs</p>
+          <p>{t('footer.rights')}</p>
+          <p className="mt-2 text-sm">{t('footer.powered')}</p>
         </div>
       </div>
     </footer>

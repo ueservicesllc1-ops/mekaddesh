@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiStar } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 const testimonials = [
   {
@@ -54,6 +55,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial, index }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -93,7 +95,7 @@ const TestimonialCard = ({ testimonial, index }) => {
 
       {/* Comment */}
       <p className="text-gray-700 mb-6 leading-relaxed relative z-10">
-        "{testimonial.comment}"
+        "{t(`testimonials.reviews.${testimonial.id}.text`)}"
       </p>
 
       {/* User Info */}
@@ -113,6 +115,7 @@ const TestimonialCard = ({ testimonial, index }) => {
 };
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-12 md:py-20 bg-gradient-to-b from-rose-50 to-white">
       <div className="container mx-auto px-4">
@@ -124,11 +127,11 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-6xl font-bold mb-3 md:mb-4 -mt-4 md:mt-0">
-            <span className="text-gray-800">Lo Que Dicen</span>{' '}
-            <span className="text-gradient-gold">Nuestros Clientes</span>
+            <span className="text-gray-800">{t('testimonials.title_say')}</span>{' '}
+            <span className="text-gradient-gold">{t('testimonials.title_customers')}</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Miles de clientes satisfechos confían en Mekaddesh para su rutina de belleza
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 
@@ -152,19 +155,19 @@ const Testimonials = () => {
         >
           <div>
             <div className="text-4xl font-bold text-gradient-gold mb-2">4.9</div>
-            <div className="text-gray-600">Calificación Promedio</div>
+            <div className="text-gray-600">{t('testimonials.stats.rating')}</div>
           </div>
           <div>
             <div className="text-4xl font-bold text-gradient-gold mb-2">10K+</div>
-            <div className="text-gray-600">Clientes Satisfechos</div>
+            <div className="text-gray-600">{t('testimonials.stats.satisfied')}</div>
           </div>
           <div>
             <div className="text-4xl font-bold text-gradient-gold mb-2">98%</div>
-            <div className="text-gray-600">Recomendarían</div>
+            <div className="text-gray-600">{t('testimonials.stats.recommend')}</div>
           </div>
           <div>
             <div className="text-4xl font-bold text-gradient-gold mb-2">5★</div>
-            <div className="text-gray-600">Productos Premium</div>
+            <div className="text-gray-600">{t('testimonials.stats.premium')}</div>
           </div>
         </motion.div>
       </div>
